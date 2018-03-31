@@ -13,7 +13,6 @@ class ContentNews extends Component{
         />
         <CardTitle title="Apple propuso los primeros emojis de discapacidades"/>
         <CardMedia
-          overlay={<CardTitle title="Algunos de los emojis"/>}
           mediaStyle = {{ display: 'block', marginLeft: 'auto',
           marginRight: 'auto', width: '50%', maxWidth: '60%',maxHeight: '60%' }}
         >

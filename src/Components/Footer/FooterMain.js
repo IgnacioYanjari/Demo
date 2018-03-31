@@ -5,8 +5,8 @@ class FooterMain extends Component{
   render(){
     return(
       <footer>
-        <Card style={{backgroundColor : '#212121'}}>
-          <CardText color = 'white' style={{textAling:'center'}} >
+        <Card style={{backgroundColor : '#212121', textAlign:'center'}}>
+          <CardText color = 'white'>
             Creado por Ignacio Yanjari
           </CardText>
         </Card>

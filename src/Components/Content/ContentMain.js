@@ -28,7 +28,7 @@ class ContentMain extends Component{
 
   render(){
     return(
-      <div style={{ margin:'1% 6% 1% 6%', textAling : 'center'}}>
+      <div style={{ margin:'2% 6% 2% 6%' , textAlign:'center'}}>
         <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader
             title="Pablo Gonzales"

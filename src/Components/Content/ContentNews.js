@@ -5,7 +5,7 @@ import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card
 class ContentNews extends Component{
   render(){
     return(
-      <Card style={{ margin:'1% 6% 1% 6%', textAling : 'center'}} >
+      <Card style={{ margin:'1% 6% 1% 6%', textAlign:'center'}} >
         <CardHeader
           title="Juanito Perez"
           subtitle="Periodista"

@@ -3,6 +3,7 @@ import {AppBar,IconButton,IconMenu,MenuItem} from 'material-ui';
 import ReorderIcon from 'material-ui-icons/Reorder';
 import AccountBoxIcon from 'material-ui-icons/AccountBox'
 import {Link} from 'react-router-dom';
+
 const iconLeft =  (
     <IconMenu
     iconStyle = {{ color : 'white'}}
@@ -50,7 +51,7 @@ class HeaderRow extends Component{
     return(
       <header>
         <AppBar
-        titleStyle = {{textAling:'center'}}
+        titleStyle={{textAlign:'center'}}
         title={this.props.title}
         iconElementLeft = {iconLeft}
         iconElementRight = {iconRight}

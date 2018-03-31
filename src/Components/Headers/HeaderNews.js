@@ -4,7 +4,7 @@ import HeaderRow from './HeaderRow.js';
 class HeaderMain extends Component{
   render(){
     return(
-      <HeaderRow title="Noticias"/>
+      <HeaderRow  title="Noticias"/>
     );
   }
 }

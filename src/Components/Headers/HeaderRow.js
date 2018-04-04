@@ -10,7 +10,7 @@ const iconLeft =  (
     iconButtonElement={<IconButton> <ReorderIcon   /> </IconButton>}
     >
       <MenuItem
-      containerElement={<Link to="/documentos"/>}
+      containerElement={<Link to="/"/>}
       primaryText="Documentos"
       />
 
@@ -34,12 +34,12 @@ const iconRight = (
     >
 
     <MenuItem
-    containerElement={<Link to="/configurar_perfil"/>}
+    containerElement={<Link to="/"/>}
     primaryText="Configurar Perfil"
     />
 
     <MenuItem
-    containerElement={<Link to="/cerrar_sesion"/>}
+    containerElement={<Link to="/"/>}
     primaryText="Cerrar Sesión"
     />
 
@@ -49,7 +49,7 @@ const iconRight = (
 class HeaderRow extends Component{
   render(){
     return(
-      <header>
+      <header >
         <AppBar
         titleStyle={{textAlign:'center'}}
         title={this.props.title}

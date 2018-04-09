@@ -38,9 +38,9 @@ class ContentHolidays extends Component{
   render(){
     let holidays = this.state.listOfHolidays;
     return(
-      <Card style={{ margin:'1% 6% 1% 6%', textAlign:'center'}} >
+      <div>
         {Object.keys(holidays).map(value => this.renderHolidays(holidays[value]))}
-      </Card>
+      </div>
     )
   }
 }

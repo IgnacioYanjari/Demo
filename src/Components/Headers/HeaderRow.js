@@ -10,8 +10,8 @@ const iconLeft =  (
     iconButtonElement={<IconButton> <ReorderIcon   /> </IconButton>}
     >
       <MenuItem
-      containerElement={<Link to="/"/>}
-      primaryText="Documentos"
+      containerElement={<Link to="/dias_feriados"/>}
+      primaryText="Dias Feriados"
       />
 
       <MenuItem

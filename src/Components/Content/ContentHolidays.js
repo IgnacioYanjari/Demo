@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Card, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardText} from 'material-ui/Card';
+import {notification} from 'antd';
 import shortid from 'shortid';
 
 class ContentHolidays extends Component{
@@ -34,16 +35,30 @@ class ContentHolidays extends Component{
       if( (date[1] >= month || (date[1] === month && date[2] >= day))
           && firstHoliday === false && date[0] === year
         ){
-        return(
-          <Card key ={shortid.generate()} style={{ margin:'1% 6% 1% 6%', textAlign:'center'}}>
-           <CardTitle
-           title={'El dia feriado más cercano es :\n'+
-            date[0] + '-' + date[1] + '-' + date[2]}/>
-          </Card>
-        );
+          return(
+            <div>
+              {notification['success']({
+                message: 'Feriado más cercano:',
+                placement:'bottomRight',
+                duration: 20,
+                description:
+                <div>
+                  <p> Razón : {list[element].title} </p>
+                  <p> Fecha : {list[element].date} </p>
+                  <p> Extra : {list[element].extra} </p>
+                </div>
+              })}
+            </div>
+          );
       }
     }
   }
+
+  // <Card key ={shortid.generate()} style={{ margin:'1% 6% 1% 6%', textAlign:'center'}}>
+  // <CardTitle
+  // title={'El dia feriado más cercano es :\n'+
+  // date[0] + '-' + date[1] + '-' + date[2]}/>
+  // </Card>
 
   renderHolidays(holiday){
     let date = holiday.date.split("-");
@@ -67,7 +82,7 @@ class ContentHolidays extends Component{
 
   render(){
     let holidays = this.state.listOfHolidays , today = this.state.today;
-    let year = today.getFullYear(), month = today.getMonth()+1, day = today.getDate();
+    let month = today.getMonth()+1, day = today.getDate();
     if( month.toString().length < 2 )
       month = '0' + month.toString();
     if( day.toString().length < 2)

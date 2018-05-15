@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Card, CardText} from 'material-ui/Card';
 import {CircularProgress} from 'material-ui';
-import {notification} from 'antd';
+import {notification,Row,Col} from 'antd';
 import shortid from 'shortid';
 
 class ContentHolidays extends Component{
@@ -59,36 +59,42 @@ class ContentHolidays extends Component{
   }
 
   renderHolidays(holidays){
-    let firstHoliday=true;
+
+    let firstHoliday = true;
     let today = this.state.today;
-    let year = today.getFullYear().toString() ,
-      month = today.getMonth()+1, day = today.getDate();
+
     return Object.keys(holidays).map( key => {
       let holiday = holidays[key];
-      let date = holiday.date.split("-");
-      let apiYear = date[0]
-      const isMyYear = (apiYear.substr(0,4) === year );
-      if( isMyYear){
-        if( (date[1] >= month || (date[1] === month && date[2] >= day) ) && firstHoliday) {
-            firstHoliday=false;
-            return(this.renderAlert(holiday))
-          }
+      let date = holiday.date;
+      let auxHoliday = new Date(date);
+      let auxToday = new Date(today);
+
+      // comparar milisegundos
+      if( auxHoliday.getTime() > auxToday.getTime() ){
+        if(firstHoliday) {
+          firstHoliday = false;
+          return(this.renderAlert(holiday))
+        }
         return(this.renderPanelHoliday(holiday));
       }
-      return(
-          <div key ={shortid.generate()}> </div>
-      );
+
+      return(<div key ={shortid.generate()}> </div>);
+
     });
   }
 
   render(){
-    let holidays = this.state.listOfHolidays;
-    console.log('largo ' + Object.keys(holidays).length)
+    const holidays = this.state.listOfHolidays;
     return(
       <div>
-
         { Object.keys(holidays).length === 0 ?(
-            <CircularProgress style={{textAlign:'center'}}size={140} thickness={5} />
+            <Row style={{marginTop:'30px',marginBottom:'30px'}}>
+              <Col span={10}/>
+              <Col span={8}>
+                <CircularProgress style={{textAlign:'center'}}size={140} thickness={5} />
+              </Col>
+              <Col span={6}/>
+            </Row>
           ):(
             this.renderHolidays(holidays)
           )

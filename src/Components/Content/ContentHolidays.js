@@ -29,7 +29,7 @@ class ContentHolidays extends Component{
 
   renderPanelHoliday(holiday){
     return(
-      <Card key ={shortid.generate()} style={{ margin:'1% 6% 1% 6%', textAlign:'center'}}>
+      <Card key ={shortid.generate()} style={{ margin:'30px 6% 30px 6%', textAlign:'center'}}>
         <CardText>
           <p> {holiday.title} </p>
           <p> {holiday.date}  </p>
@@ -43,7 +43,7 @@ class ContentHolidays extends Component{
     return(
       <div key ={shortid.generate()}>
         {this.renderPanelHoliday(holiday)}
-        {notification['success']({
+        {notification['info']({
           message: 'Feriado más cercano:',
           placement:'bottomRight',
           duration: 20,

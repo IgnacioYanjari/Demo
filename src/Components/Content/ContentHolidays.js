@@ -70,15 +70,35 @@ class ContentHolidays extends Component{
       let auxToday = new Date(today);
 
       // comparar milisegundos
-      if( auxHoliday.getTime() > auxToday.getTime() ){
+      if( auxHoliday.getTime() >= auxToday.getTime() ){
         if(firstHoliday) {
           firstHoliday = false;
+          // Si el dia de hoy es feriado :)
+          if(auxHoliday.getTime() + 24*60*60*60*60 >= auxToday.getTime() ){
+            // Separar el return en un componente aparte
+            return(
+              <div key ={shortid.generate()}>
+              {this.renderPanelHoliday(holiday)}
+              {notification['success']({
+                message: 'HOY ES FERIADO!!! :) ',
+                placement:'bottomRight',
+                duration: 20,
+                description:
+                <div>
+                <p> Razón : {holiday.title} </p>
+                <p> Fecha : {holiday.date} </p>
+                <p> Extra : {holiday.extra} </p>
+                </div>
+              })}
+              </div>
+            )}
           return(this.renderAlert(holiday))
         }
         return(this.renderPanelHoliday(holiday));
       }
 
       return(<div key ={shortid.generate()}> </div>);
+
 
     });
   }

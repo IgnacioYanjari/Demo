@@ -73,8 +73,9 @@ class ContentHolidays extends Component{
       if( auxHoliday.getTime() >= auxToday.getTime() ){
         if(firstHoliday) {
           firstHoliday = false;
-          // Si el dia de hoy es feriado :)
-          if(auxHoliday.getTime() + 24*60*60*60*60 >= auxToday.getTime() ){
+
+          // si es el dia actual || Falta separarlo en una función
+          if(auxHoliday.getTime() + 86400000 >= auxToday.getTime()  && auxToday.getTime() > auxHoliday.getTime()){
             // Separar el return en un componente aparte
             return(
               <div key ={shortid.generate()}>
